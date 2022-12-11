@@ -119,8 +119,8 @@ Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kulla
    Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
 */
 
-function indekstekiCesitiGetir(asılTatlar, indeksTat){
-  return asılTatlar[indeksTat];
+function indekstekiCesitiGetir(asilTatlar, indeksTat){
+  return asilTatlar[indeksTat];
 }
 console.log(indekstekiCesitiGetir(orijinalTatlar, 2));
 
@@ -221,86 +221,68 @@ Aşağıdakileri yapmak için rastgeleTatlar işlevini ve yeni dizileri kullanı
   Örneğin: rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar) çalıştırıldığında ["Kestane", "Ballı Badem,"..."Hindistan Cevizi", "Kuru üzüm"].
 */
 
-// yiğit: aşağıda comment'lenmemiş kodu npm run test'i geçmesi için bu şekilde bıraktım. 
-//yiğit: sandbox'ta çalışan asıl kodum aşşağıda comment'lenmiş durumdadır.
-
-function rastgeleTatlar(liste1){
-  let rastgeleTatlar = [];
-  
-  for(let i=0; i < 6; i++){
-    let randomNumber = Math.floor(Math.random() * liste1.length);;
-    rastgeleTatlar.push(liste1[randomNumber]);
-  }
-  return rastgeleTatlar;
-}
-
-console.log(rastgeleTatlar(orijinalTatlar));
-
-/* function rastgeleTatlar(liste1, liste2, liste3, liste4){
-  let rastgeleTatlar = [];
-  
-  for(i=0; i < 6; i++){
-    let randomNumber = Math.floor(Math.random() * liste1.length);;
-    rastgeleTatlar.push(liste1[randomNumber]);
-  }
-  for(i=0; i < 6; i++){
-    let randomNumber = Math.floor(Math.random() * liste2.length);;
-    rastgeleTatlar.push(liste2[randomNumber]);
-  }
-  for(i=0; i < 6; i++){
-    let randomNumber = Math.floor(Math.random() * liste3.length);;
-    rastgeleTatlar.push(liste3[randomNumber]);
-  }
-  for(i=0; i < 7; i++){
-    let randomNumber = Math.floor(Math.random() * liste4.length);;
-    rastgeleTatlar.push(liste4[randomNumber]);
-  }
-  return rastgeleTatlar;
-}
-
-console.log(rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar));
-*/
-
-
-
-
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
-// const yeniTatlar = [
-//   "Badem",
-//   "Ballı Badem",
-//   "Fıstık Ezmesi",
-//   "Profiterol",
-//   "Madlen Çikolata"
-// ]
+const yeniTatlar = [
+"Badem",
+"Ballı Badem",
+"Fıstık Ezmesi",
+ "Profiterol",
+"Madlen Çikolata"
+];
 
-// const mevsimlikTatlar = [
-// "Pekan",
-// "Kaju",
-// "Çikolatalı Mousse",
-// "Fransız Vanilyası",
-// "Yumurta",
-// "Alman çikolatası",
-// "Kek üzerine krema",
-// "Hindistan Cevizi",
-// "Kaymaklı Biskuvi",
-// "Beyaz Çikolata",
-// "Mango"
-// ]
+const mevsimlikTatlar = [
+"Pekan",
+"Kaju",
+"Çikolatalı Mousse",
+"Fransız Vanilyası",
+"Yumurta",
+"Alman çikolatası",
+"Kek üzerine krema",
+"Hindistan Cevizi",
+"Kaymaklı Biskuvi",
+"Beyaz Çikolata",
+"Mango"
+];
 
-// const bolgeselTatlar = [
-// "Kaymak",
-// "Karpuz",
-// "Karadut",
-// "Turunç",
-// "Portakal",
-// "Yogurt",
-// "Krem Peynir",
-// "Kakao",
-// "Karamel macchiato",
-// "Kuru üzüm",
-// "Peynir",
-// "Karamel"
-// ]
+const bolgeselTatlar = [
+"Kaymak",
+"Karpuz",
+"Karadut",
+"Turunç",
+"Portakal",
+"Yogurt",
+"Krem Peynir",
+"Kakao",
+"Karamel macchiato",
+"Kuru üzüm",
+"Peynir",
+"Karamel"
+];
+
+function rastgeleTatlar(liste1, liste2, liste3, liste4){
+  let rastgeleTatlar = [];
+  const listeler = [liste1, liste2, liste3, liste4]
+  
+  for (let i=0; i <25; i ++){
+    let randomNumber = Math.floor(Math.random()*4);
+    let secilenListe;
+    if (randomNumber <= 1){
+      secilenListe = liste1;
+    } else if (randomNumber <= 2){
+      secilenListe = liste2;
+    } else if (randomNumber <= 3){
+      secilenListe = liste3;
+    } else{
+      secilenListe = liste4;
+    };
+    let randomNumber2 = Math.floor(Math.random()*secilenListe.length);
+    rastgeleTatlar.push(secilenListe[randomNumber2]);
+  };
+  return rastgeleTatlar;
+};
+
+console.log("rastgele tatlar: " + rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar));
+
 
 
 /* Lütfen bu satırın altındaki hiçbir şeyi değiştirmeyin */
